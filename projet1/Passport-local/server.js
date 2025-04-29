@@ -16,8 +16,8 @@ console.log(process.env.SECRET);
 // Handlebars
 const exphbs = require("express-handlebars");
 app.set("views","/views");
-app.set("view engine", ".hbd");
-app.engine('hbs', exphbs.engine({extname:".hbs", defaultLayout:"", layoutDir:""}));
+app.set("view engine", "hbs");
+app.engine('hbs', exphbs.engine({ extname: ".hbs" }));
 
 //Models
 const models = require("./models");
@@ -29,9 +29,14 @@ models.sequelize.sync().then(()=>{
 
 
 //Passport
-app.use(session({secret:process.env.SECRET, resave:true, saveUninitialized:true}));
+app.use(session({
+    secret: process.env.SECRET,
+    resave: true,
+    saveUninitialized: true
+}));
 app.use(passport.initialize());
 app.use(passport.session());
+
 require("./config/passport/passport.js")(passport, models.user);
 require("./routes/auth.js")(app,passport);
 
@@ -41,4 +46,10 @@ app.get("/", (req,res) => {
 })
 
 
-app.listen(3000, () => {console.log(`Serveur ecoute sur port 3000`)});
+try {
+    app.listen(3000, () => {
+        console.log('Serveur écoute sur le port 3000');
+    });
+} catch (err) {
+    console.error('Erreur app.listen :', err);
+}
