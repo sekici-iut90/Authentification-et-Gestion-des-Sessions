@@ -1,4 +1,4 @@
-# S5 BUT NORD FRANCHE COMTE
+# Projet MERAT Leslie - EKICI Sugdenaz
 
 
 Projet de départ pour le cours Nouvelles bases de données: NodeJS + NoSQL
