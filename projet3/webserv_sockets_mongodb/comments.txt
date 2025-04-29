@@ -1,2 +1,0 @@
-npm install express socket.io mongoose ejs dotenv cors helmet morgan
-npm install --save-dev nodemon
