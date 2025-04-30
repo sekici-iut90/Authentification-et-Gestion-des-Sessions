@@ -10,27 +10,33 @@ require('dotenv').config();
  * @swagger
  * /register:
  *   post:
- *     summary: "Inscription d'un nouvel utilisateur"
- *     description: "Permet de créer un nouvel utilisateur avec un nom d'utilisateur, un email et un mot de passe."
+ *     summary: Inscription d'un nouvel utilisateur
+ *     description: Crée un nouvel utilisateur avec un nom d'utilisateur, un email et un mot de passe.
+ *     tags:
+ *       - Auth
  *     requestBody:
  *       required: true
  *       content:
  *         application/json:
  *           schema:
  *             type: object
+ *             required:
+ *               - username
+ *               - email
+ *               - password
  *             properties:
  *               username:
  *                 type: string
- *                 example: "john_doe"
+ *                 example: john_doe
  *               email:
  *                 type: string
- *                 example: "john.doe@example.com"
+ *                 example: john.doe@example.com
  *               password:
  *                 type: string
- *                 example: "password123"
+ *                 example: password123
  *     responses:
  *       201:
- *         description: "Utilisateur créé avec succès."
+ *         description: Utilisateur créé avec succès.
  *         content:
  *           application/json:
  *             schema:
@@ -38,7 +44,7 @@ require('dotenv').config();
  *               properties:
  *                 message:
  *                   type: string
- *                   example: "Utilisateur créé"
+ *                   example: Utilisateur créé
  *                 user:
  *                   type: object
  *                   properties:
@@ -47,15 +53,16 @@ require('dotenv').config();
  *                       example: 1
  *                     username:
  *                       type: string
- *                       example: "john_doe"
+ *                       example: john_doe
  *                     email:
  *                       type: string
- *                       example: "john.doe@example.com"
+ *                       example: john.doe@example.com
  *       400:
- *         description: "Erreur lors de la création de l'utilisateur."
+ *         description: Erreur de validation ou email déjà utilisé.
  *       500:
- *         description: "Erreur serveur interne."
+ *         description: Erreur serveur interne.
  */
+
 router.post('/register', async (req, res) => {
   const { username, email, password } = req.body;
 
@@ -87,11 +94,13 @@ router.post('/register', async (req, res) => {
  * @swagger
  * /users:
  *   get:
- *     summary: "Récupère tous les utilisateurs"
- *     description: "Retourne une liste de tous les utilisateurs enregistrés (sans mot de passe)."
+ *     summary: Récupère tous les utilisateurs
+ *     description: Retourne une liste de tous les utilisateurs enregistrés (sans mot de passe).
+ *     tags:
+ *       - Utilisateurs
  *     responses:
  *       200:
- *         description: "Liste des utilisateurs"
+ *         description: Liste des utilisateurs
  *         content:
  *           application/json:
  *             schema:
@@ -104,13 +113,14 @@ router.post('/register', async (req, res) => {
  *                     example: 1
  *                   username:
  *                     type: string
- *                     example: "john_doe"
+ *                     example: john_doe
  *                   email:
  *                     type: string
- *                     example: "john.doe@example.com"
+ *                     example: john.doe@example.com
  *       500:
- *         description: "Erreur serveur interne."
+ *         description: Erreur serveur interne.
  */
+
 router.get('/users', async (req, res) => {
   try {
     const users = await User.findAll({
@@ -127,24 +137,29 @@ router.get('/users', async (req, res) => {
  * @swagger
  * /login:
  *   post:
- *     summary: "Connexion d'un utilisateur"
- *     description: "Permet à un utilisateur de se connecter en utilisant son email et son mot de passe. Si l'utilisateur est authentifié avec succès, un token JWT est renvoyé."
+ *     summary: Connexion d'un utilisateur
+ *     description: Permet à un utilisateur de se connecter en utilisant son email et son mot de passe. Si l'utilisateur est authentifié avec succès, un token JWT est renvoyé.
+ *     tags:
+ *       - Auth
  *     requestBody:
  *       required: true
  *       content:
  *         application/json:
  *           schema:
  *             type: object
+ *             required:
+ *               - email
+ *               - password
  *             properties:
  *               email:
  *                 type: string
- *                 example: "john.doe@example.com"
+ *                 example: john.doe@example.com
  *               password:
  *                 type: string
- *                 example: "password123"
+ *                 example: password123
  *     responses:
  *       200:
- *         description: "Connexion réussie, JWT retourné."
+ *         description: Connexion réussie, JWT retourné.
  *         content:
  *           application/json:
  *             schema:
@@ -152,12 +167,12 @@ router.get('/users', async (req, res) => {
  *               properties:
  *                 message:
  *                   type: string
- *                   example: "Connexion réussie"
+ *                   example: Connexion réussie
  *                 token:
  *                   type: string
- *                   example: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTYyMzE1NzI4NiwiZXhwIjoxNjIzMTYwODg2fQ.sMvKwpf35Eov0z5mF8P-0_VwETm-eJ96C7nSHBOwS3Y"
+ *                   example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
  *       404:
- *         description: "Utilisateur non trouvé."
+ *         description: Utilisateur non trouvé.
  *         content:
  *           application/json:
  *             schema:
@@ -165,9 +180,9 @@ router.get('/users', async (req, res) => {
  *               properties:
  *                 message:
  *                   type: string
- *                   example: "Utilisateur non trouvé"
+ *                   example: Utilisateur non trouvé
  *       401:
- *         description: "Mot de passe incorrect."
+ *         description: Mot de passe incorrect.
  *         content:
  *           application/json:
  *             schema:
@@ -175,9 +190,9 @@ router.get('/users', async (req, res) => {
  *               properties:
  *                 message:
  *                   type: string
- *                   example: "Mot de passe incorrect"
+ *                   example: Mot de passe incorrect
  *       500:
- *         description: "Erreur serveur interne."
+ *         description: Erreur serveur interne.
  *         content:
  *           application/json:
  *             schema:
@@ -185,11 +200,12 @@ router.get('/users', async (req, res) => {
  *               properties:
  *                 message:
  *                   type: string
- *                   example: "Une erreur est survenue lors de la connexion"
+ *                   example: Une erreur est survenue lors de la connexion
  *                 error:
  *                   type: string
- *                   example: "Erreur de connexion à la base de données"
+ *                   example: Erreur de connexion à la base de données
  */
+
 
 router.post('/login', async (req, res) => {
     const { email, password } = req.body;
