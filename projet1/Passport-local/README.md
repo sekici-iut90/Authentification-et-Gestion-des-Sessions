@@ -16,3 +16,15 @@ npm i dotenv bcrypt express-session express-handlebars
 
 ## Optionnel
 npm i --save-dev nodemon
+
+## Voici ceux à quoi peut ressembler le .env du projet :
+
+```dotenv
+DB_HOST=host
+DB_USER=user
+DB_PASSWORD=password
+DB_NAME=db
+SECRET=taPhraseUltraSecrète
+```
+
+
