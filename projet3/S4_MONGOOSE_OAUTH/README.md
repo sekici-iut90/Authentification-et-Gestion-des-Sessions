@@ -1,4 +1,4 @@
-# Projet Google + OAuth
+# Projet Google + OAuth2
 
 MERAT Leslie - EKICI Sugdenaz
 
