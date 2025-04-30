@@ -8,6 +8,9 @@ npm install
 ## Initialisation du projet 
 npm init --y
 
+## Pour Nodejs
+Attention il faut utiliser la version 18, une version supérieur fait crasher l'application !!
+
 ## Pour postgres
 npm install pg pg-hstore
 
