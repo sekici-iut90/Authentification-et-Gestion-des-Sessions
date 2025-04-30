@@ -10,3 +10,10 @@ npm install pg pg-hstore
 
 ## Pour Express, JWT, bcrypt, .env et Sequelize
 npm install express jsonwebtoken bcryptjs dotenv sequelize 
+
+# Exemple de fichier .env
+DB_HOST= host
+DB_USER= user
+DB_PASSWORD= pwd
+DB_NAME= name
+JWT_SECRET= key
