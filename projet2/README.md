@@ -17,3 +17,11 @@ DB_USER= user
 DB_PASSWORD= pwd
 DB_NAME= name
 JWT_SECRET= key
+
+```dotenv
+DB_HOST= host
+DB_USER= user
+DB_PASSWORD= pwd
+DB_NAME= name
+JWT_SECRET= key
+```
