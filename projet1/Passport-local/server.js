@@ -4,6 +4,9 @@ const passport = require("passport");
 const session = require("express-session");
 const bodyParser = require("body-parser");
 
+const path = require("path");
+
+
 //Encodage
 
 app.use(bodyParser.urlencoded({extended:true}));
@@ -15,7 +18,7 @@ console.log(process.env.SECRET);
 
 // Handlebars
 const exphbs = require("express-handlebars");
-app.set("views","/views");
+app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "hbs");
 app.engine('hbs', exphbs.engine({ extname: ".hbs" }));
 
