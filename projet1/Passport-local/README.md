@@ -2,6 +2,9 @@
 
 EKICI Sugdenaz - MERAT Leslie
 
+## À la racine du projet
+npm install
+
 ## Initialisation du projet
 npm init --y
 
