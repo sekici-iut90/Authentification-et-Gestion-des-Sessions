@@ -10,10 +10,10 @@ module.exports = function (app,passport) {
     app.get('/signin', authController.signin);
     app.get('/home', isLoggedIn, authController.home);
     app.get("/logout", authController.logout);
-    app.post("/signin", passport.authenticate('lacal-signin',
+    app.post("/signin", passport.authenticate('local-signin',
         {succesRedirect: '/home', failureRedirect:"/signin"}
     ));
-    app.post("/signup", passport.authenticate('lacal-signup',
+    app.post("/signup", passport.authenticate('local-signup',
         {succesRedirect: '/home', failureRedirect:"/signup"}
     ));
 }
