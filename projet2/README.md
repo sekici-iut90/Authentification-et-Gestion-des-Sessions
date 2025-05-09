@@ -26,5 +26,5 @@ DB_NAME= name
 JWT_SECRET= key
 ```
 # Lien de notre vidéo :
-https://youtube.com/shorts/fcNAKoHaWhw?si=ljj_poqYfUl0cJJh
+
 
