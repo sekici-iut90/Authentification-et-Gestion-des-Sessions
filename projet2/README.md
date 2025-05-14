@@ -6,7 +6,44 @@ EKICI Sugdenaz - MERAT Leslie
 npm install
 
 ## Initialisation du projet 
+
+Si le fichier package.json n'est pas là il faut l'initialiser dans el backend et le frontend :
+```
 npm init --y
+```
+ensuite installé les dépendance pour le backend dans le dossier backend: 
+```
+npm install bcrypt
+npm install bcryptjs
+npm install cors
+npm install dotenv
+npm install express
+npm install jsonwebtoken
+npm install pg
+npm install pg-hstore
+npm install sequelize
+npm install swagger-jsdoc
+npm install swagger-ui-express
+```
+Et pour le frontend les dépendances production:
+```
+npm install axios
+npm install core-js
+npm install vue
+npm install vue-router
+```
+et les dépendance de développement :
+```
+npm install --save-dev @babel/core
+npm install --save-dev @babel/eslint-parser
+npm install --save-dev @vue/cli-plugin-babel
+npm install --save-dev @vue/cli-plugin-eslint
+npm install --save-dev @vue/cli-service
+npm install --save-dev eslint
+npm install --save-dev eslint-plugin-vue
+npm install --save-dev launch-editor-middleware
+
+```
 
 ## Pour Nodejs
 Attention il faut utiliser la version 18, une version supérieur fait crasher l'application !!
