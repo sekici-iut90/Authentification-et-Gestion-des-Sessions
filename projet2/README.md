@@ -19,11 +19,11 @@ npm install express jsonwebtoken bcryptjs dotenv sequelize
 
 # Exemple de fichier .env
 ```dotenv
-DB_HOST= host
-DB_USER= user
-DB_PASSWORD= pwd
-DB_NAME= name
-JWT_SECRET= key
+DB_HOST=localhost
+DB_USER=user
+DB_PASSWORD=password
+DB_NAME=nameDB
+JWT_SECRET=key_secrey
 ```
 # Lien de notre vidéo :
 
