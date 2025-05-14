@@ -14,7 +14,7 @@ Si le fichier package.json n'est pas là il faut l'initialiser à la racine du p
 ```
 npm init --y
 ```
-ensuite installé les dépendance pour le backend dans le dossier backend: 
+ensuite installé les dépendance à la racine du projet : 
 ```
 npm install cors
 npm install dotenv
