@@ -10,12 +10,22 @@ npm init --y
 
 ## Pour Nodejs
 Attention il faut utiliser la version 18, une version supérieur fait crasher l'application !!
+Pour changer de version faire, il faut le faire danc le dossier backend et frontend :
+```dotenv
+nvm use 18
+```
 
-## Pour postgres
-npm install pg pg-hstore
+## Pour lancer le projet 
+Dans le backend, après avoir crée le fichier .env faire 
+```dotenv
+node app.js
+```
 
-## Pour Express, JWT, bcrypt, .env et Sequelize
-npm install express jsonwebtoken bcryptjs dotenv sequelize 
+Et dans le frontend,
+```dotenv
+npm run serve
+```
+
 
 # Exemple de fichier .env
 ```dotenv
