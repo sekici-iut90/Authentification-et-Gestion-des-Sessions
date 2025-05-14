@@ -16,17 +16,18 @@ npm init --y
 ```
 ensuite installé les dépendance pour le backend dans le dossier backend: 
 ```
-npm install bcrypt
-npm install bcryptjs
 npm install cors
 npm install dotenv
+npm install ejs
 npm install express
-npm install jsonwebtoken
-npm install pg
-npm install pg-hstore
-npm install sequelize
-npm install swagger-jsdoc
-npm install swagger-ui-express
+npm install helmet
+npm install mongoose
+npm install morgan
+npm install socket.io
+```
+Et pour les dépendances de développement :
+```
+npm install --save-dev nodemon
 ```
 
 ## Pour Nodejs
@@ -43,24 +44,7 @@ nvm use 18
 ```
 
 ## Pour lancer le projet 
+À la racine du projet faire :
 ```
-node app.js
+npm start
 ```
-
-Et dans le frontend,
-```dotenv
-npm run serve
-```
-
-
-# Exemple de fichier .env
-```dotenv
-DB_HOST=localhost
-DB_USER=user
-DB_PASSWORD=password
-DB_NAME=nameDB
-JWT_SECRET=key_secrey
-```
-# Lien de notre vidéo :
-
-https://youtu.be/Ns74JJyqnME
